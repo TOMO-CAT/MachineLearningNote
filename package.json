@@ -1,0 +1,14 @@
+{
+    "name": "machine-learning-note",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "serve": "gitbook serve",
+        "build": "gitbook build . ./build/dist",
+        "pdf": "gitbook pdf . ./build/book.pdf",
+        "epub": "gitbook epub . ./build/book.epub",
+        "mobi": "gitbook mobi . ./build/book.mobi"
+    },
+    "author": "tomocat",
+    "license": "ISC"
+}

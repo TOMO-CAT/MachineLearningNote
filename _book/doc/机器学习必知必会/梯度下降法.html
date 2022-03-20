@@ -1,0 +1,671 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>梯度下降法 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-bookstyle/book.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="集成学习.html" />
+    
+    
+    <link rel="prev" href="牛顿法和拟牛顿法.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			<li>
+				<a href="https://www.zhihu.com/people/mian-bei-juan-da-cong" target="_blank">知乎</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<!-- <div class="book-summary-title">文档目录</div> -->
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    必知必会
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="定序回归.html">
+            
+                <a href="定序回归.html">
+            
+                    
+                    机器学习导论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="损失函数和风险函数.html">
+            
+                <a href="损失函数和风险函数.html">
+            
+                    
+                    损失函数和风险函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="交叉验证.html">
+            
+                <a href="交叉验证.html">
+            
+                    
+                    交叉验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="定序回归.html">
+            
+                <a href="定序回归.html">
+            
+                    
+                    定序回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="拉格朗日乘子法和对偶性.html">
+            
+                <a href="拉格朗日乘子法和对偶性.html">
+            
+                    
+                    拉格朗日乘子法和对偶性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="牛顿法和拟牛顿法.html">
+            
+                <a href="牛顿法和拟牛顿法.html">
+            
+                    
+                    牛顿法和拟牛顿法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.7" data-path="梯度下降法.html">
+            
+                <a href="梯度下降法.html">
+            
+                    
+                    梯度下降法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="集成学习.html">
+            
+                <a href="集成学习.html">
+            
+                    
+                    集成学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="凸优化.html">
+            
+                <a href="凸优化.html">
+            
+                    
+                    凸优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="正则化.html">
+            
+                <a href="正则化.html">
+            
+                    
+                    正则化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="主成分分析.html">
+            
+                <a href="主成分分析.html">
+            
+                    
+                    主成分分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    算法推导
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../机器学习算法/线性回归模型.html">
+            
+                <a href="../机器学习算法/线性回归模型.html">
+            
+                    
+                    线性回归模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../机器学习算法/朴素贝叶斯.html">
+            
+                <a href="../机器学习算法/朴素贝叶斯.html">
+            
+                    
+                    朴素贝叶斯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../机器学习算法/k近邻算法.html">
+            
+                <a href="../机器学习算法/k近邻算法.html">
+            
+                    
+                    k近邻算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../机器学习算法/关联分析.html">
+            
+                <a href="../机器学习算法/关联分析.html">
+            
+                    
+                    关联分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../机器学习算法/聚类学习.html">
+            
+                <a href="../机器学习算法/聚类学习.html">
+            
+                    
+                    聚类学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../机器学习算法/决策树引论和CART算法.html">
+            
+                <a href="../机器学习算法/决策树引论和CART算法.html">
+            
+                    
+                    决策树引论和CART算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../机器学习算法/逻辑回归模型.html">
+            
+                <a href="../机器学习算法/逻辑回归模型.html">
+            
+                    
+                    逻辑回归模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../机器学习算法/泊松回归.html">
+            
+                <a href="../机器学习算法/泊松回归.html">
+            
+                    
+                    泊松回归
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../机器学习算法/支持向量机.html">
+            
+                <a href="../机器学习算法/支持向量机.html">
+            
+                    
+                    支持向量机
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../机器学习算法/随机森林.html">
+            
+                <a href="../机器学习算法/随机森林.html">
+            
+                    
+                    随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../机器学习算法/Adaboost算法和提升树.html">
+            
+                <a href="../机器学习算法/Adaboost算法和提升树.html">
+            
+                    
+                    Adaboost算法和提升树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../机器学习算法/XGBoost.html">
+            
+                <a href="../机器学习算法/XGBoost.html">
+            
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">本页目录:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >梯度下降法</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<h1 id="&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;">&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;</h1>
+<h2 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h2>
+<p>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;<code>gradient descent</code>&#x662F;&#x6C42;&#x89E3;&#x65E0;&#x7EA6;&#x675F;&#x6700;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x7684;&#x4E00;&#x79CD;&#x6700;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x8FED;&#x4EE3;&#x7B97;&#x6CD5;&#xFF0C;&#x6BCF;&#x4E00;&#x6B65;&#x9700;&#x8981;&#x6C42;&#x89E3;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x68AF;&#x5EA6;&#x5411;&#x91CF;&#x3002;</p>
+<h2 id="&#x95EE;&#x9898;&#x62BD;&#x8C61;">&#x95EE;&#x9898;&#x62BD;&#x8C61;</h2>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x662F;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>R</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">R^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#x4E0A;&#x5177;&#x6709;&#x4E00;&#x9636;&#x8FDE;&#x7EED;&#x504F;&#x5BFC;&#x6570;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8981;&#x6C42;&#x89E3;&#x7684;&#x65E0;&#x7EA6;&#x675F;&#x95EE;&#x9898;&#x662F;:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>min</mi><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo separator="true">,</mo><mi>x</mi><mo>&#x2208;</mo><msup><mi>R</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\min f(x), x\in R^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mop">min</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mord mathit">x</span><span class="mrel">&#x2208;</span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C; &#x5176;&#x4E2D;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mo>&#x2217;</mo></msup></mrow><annotation encoding="application/x-tex">x^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.688696em;"></span><span class="strut bottom" style="height:0.688696em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mbin mtight">&#x2217;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#x8868;&#x793A;&#x76EE;&#x6807;&#x51FD;&#x6570;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x7684;&#x6781;&#x5C0F;&#x503C;&#x70B9;</p>
+<h2 id="&#x5173;&#x952E;&#x6982;&#x5FF5;">&#x5173;&#x952E;&#x6982;&#x5FF5;</h2>
+<ul>
+<li>&#x8FED;&#x4EE3;&#xFF1A;&#x9009;&#x53D6;&#x9002;&#x5F53;&#x521D;&#x59CB;&#x503C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mn>0</mn><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(0)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathrm mtight">0</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C;&#x4E0D;&#x65AD;&#x8FED;&#x4EE3;&#x66F4;&#x65B0;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x7684; &#x503C;&#xFF0C;&#x76F4;&#x81F3;&#x6536;&#x655B;</li>
+<li>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF1A;&#x8D1F;&#x68AF;&#x5EA6;&#x65B9;&#x5411;&#x662F;&#x4F7F;&#x51FD;&#x6570;&#x503C;&#x4E0B;&#x964D;&#x6700;&#x5FEB;&#x7684;&#x65B9;&#x5411;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x8FED;&#x4EE3;&#x7684;&#x6BCF;&#x4E00;&#x6B65;&#x90FD;&#x4EE5;&#x8D1F;&#x68AF;&#x5EA6;&#x65B9;&#x5411;&#x66F4;&#x65B0;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">x</span></span></span></span>&#x7684;&#x503C;</li>
+<li>&#x6536;&#x655B;&#xFF1A;&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x7CBE;&#x5EA6;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3F5;</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3F5;</span></span></span></span>&#xFF0C;&#x5728;&#x8FED;&#x4EE3;&#x7684;&#x6BCF;&#x4E00;&#x8F6E;&#x6839;&#x636E;&#x68AF;&#x5EA6;&#x51FD;&#x6570;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi mathvariant="normal">&#x25BD;</mi><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x)=\triangledown f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">&#x25BD;</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mi>k</mi></msub><mo>=</mo><mi>f</mi><mo>(</mo><msup><mi>x</mi><mi>k</mi></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">g_k=f(x^k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.849108em;"></span><span class="strut bottom" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><msub><mi>g</mi><mi>k</mi></msub><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><mo>&lt;</mo><mi>&#x3F5;</mi></mrow><annotation encoding="application/x-tex">||g_k||&lt;\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mrel">&lt;</span><span class="mord mathit">&#x3F5;</span></span></span></span>&#x65F6;&#x8BA4;&#x4E3A;&#x6536;&#x655B;</li>
+<li>&#x5B66;&#x4E60;&#x7387;&#xFF1A;&#x4E5F;&#x53EB;&#x505A;&#x6B65;&#x957F;&#xFF0C;&#x8868;&#x793A;&#x5728;&#x6BCF;&#x4E00;&#x6B65;&#x8FED;&#x4EE3;&#x4E2D;&#x6CBF;&#x7740;&#x8D1F;&#x68AF;&#x5EA6;&#x65B9;&#x5411;&#x524D;&#x8FDB;&#x7684;&#x8DDD;&#x79BB;</li>
+</ul>
+<h2 id="&#x76F4;&#x89C2;&#x7406;&#x89E3;">&#x76F4;&#x89C2;&#x7406;&#x89E3;</h2>
+<p>&#x4EE5;&#x4E0B;&#x56FE;&#x4E3A;&#x4F8B;&#xFF0C;&#x5F00;&#x59CB;&#x65F6;&#x6211;&#x4EEC;&#x5904;&#x4E8E;&#x9ED1;&#x8272;&#x5706;&#x70B9;&#x7684;&#x521D;&#x59CB;&#x503C;&#xFF08;&#x8BB0;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mn>0</mn><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(0)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathrm mtight">0</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C3D;&#x5FEB;&#x627E;&#x5230;&#x51FD;&#x6570;&#x7684;&#x6700;&#x5C0F;&#x503C;&#x70B9;&#xFF0C;&#x6700;&#x5FEB;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x6CBF;&#x7740;&#x5761;&#x5EA6;&#x6700;&#x9661;&#x7684;&#x65B9;&#x5411;&#x5F80;&#x4E0B;&#x8D70;&#x3002;</p>
+<p><img src="image/v2-77e399ef445fd8f97a1afa2161285c10_b.png" alt="img"></p>
+<h2 id="&#x7B97;&#x6CD5;&#x7EC6;&#x8282;">&#x7B97;&#x6CD5;&#x7EC6;&#x8282;</h2>
+<p>&#x7531;&#x4E8E;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x5177;&#x6709;&#x4E00;&#x9636;&#x8FDE;&#x7EED;&#x5BFC;&#x51FD;&#x6570;&#xFF0C;&#x82E5;&#x7B2C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>&#x6B21;&#x8FED;&#x4EE3;&#x503C;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C;&#x5219;&#x53EF;&#x5C06;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x5728;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#x9644;&#x8FD1;&#x8FDB;&#x884C;&#x4E00;&#x9636;&#x6CF0;&#x52D2;&#x5C55;&#x5F00;&#xFF1A;
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo><mo>+</mo><msubsup><mi>g</mi><mi>k</mi><mi>T</mi></msubsup><mo>(</mo><mi>x</mi><mo>&#x2212;</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">
+f(x)=f(x^{(k)})+g_k^T(x-x^{(k)})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.938em;"></span><span class="strut bottom" style="height:1.188em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mbin">+</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.247em;margin-left:-0.03588em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span style="top:-0.4129999999999999em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mbin">&#x2212;</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></span>
+&#x5176;&#x4E2D;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mi>k</mi></msub><mo>=</mo><mi>g</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo><mo>=</mo><mi mathvariant="normal">&#x25BD;</mi><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">g_k=g(x^{(k)})=\triangledown f(x^{(k)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">&#x25BD;</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>&#x5728;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#x7684;&#x68AF;&#x5EA6;&#x3002; 
+&#x63A5;&#x7740;&#x6211;&#x4EEC;&#x6C42;&#x51FA;&#x7B2C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>&#x6B21;&#x7684;&#x8FED;&#x4EE3;&#x503C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(k+1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>:
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>&#x2190;</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>+</mo><msub><mi>&#x3BB;</mi><mi>k</mi></msub><msub><mi>p</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">
+x^{(k+1)}\leftarrow x^{(k)}+\lambda_kp_k
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.938em;"></span><span class="strut bottom" style="height:1.13244em;vertical-align:-0.19444em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">&#x2190;</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">&#x3BB;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span>
+&#x5176;&#x4E2D;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">p_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#x662F;&#x641C;&#x7D22;&#x65B9;&#x5411;&#xFF0C;&#x53D6;&#x8D1F;&#x68AF;&#x5EA6;&#x65B9;&#x5411;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>k</mi></msub><mo>=</mo><mo>&#x2212;</mo><mi mathvariant="normal">&#x25BD;</mi><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">p_k=-\triangledown f(x^{(k)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord">&#x2212;</span><span class="mord mathrm">&#x25BD;</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>&#xFF0C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>&#x3BB;</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\lambda_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">&#x3BB;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#x662F;&#x6B65;&#x957F;&#xFF0C;&#x9700;&#x6EE1;&#x8DB3;&#xFF1A;
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>+</mo><msub><mi>&#x3BB;</mi><mi>k</mi></msub><msub><mi>p</mi><mi>k</mi></msub><mo>)</mo><mo>=</mo><msub><mi>min</mi><mrow><mi>&#x3BB;</mi><mo>&#x2265;</mo><mn>0</mn></mrow></msub><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>+</mo><mi>&#x3BB;</mi><msub><mi>p</mi><mi>k</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">
+f(x^{(k)}+\lambda_kp_k)=\min_{\lambda\geq0}f(x^{(k)}+\lambda p_k)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.938em;"></span><span class="strut bottom" style="height:1.7852869999999998em;vertical-align:-0.8472869999999999em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">&#x3BB;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mop op-limits"><span class="vlist"><span style="top:0.6521079999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">&#x3BB;</span><span class="mrel mtight">&#x2265;</span><span class="mord mathrm mtight">0</span></span></span></span><span style="top:2.7755575615628914e-17em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop">min</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord mathit">&#x3BB;</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<h2 id="&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;">&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;</h2>
+<ul>
+<li><strong>&#x8F93;&#x5165;</strong>&#xFF1A;&#x76EE;&#x6807;&#x51FD;&#x6570;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#xFF0C;&#x68AF;&#x5EA6;&#x51FD;&#x6570;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>g</mi><mo>(</mo><mi>x</mi><mo>)</mo><mo>=</mo><mi mathvariant="normal">&#x25BD;</mi><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">g(x)=\triangledown f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">&#x25BD;</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#xFF0C;&#x8BA1;&#x7B97;&#x7CBE;&#x5EA6;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3F5;</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">&#x3F5;</span></span></span></span></li>
+<li><strong>&#x8F93;&#x51FA;</strong>&#xFF1A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><mi>x</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathit">x</span><span class="mclose">)</span></span></span></span>&#x7684;&#x6781;&#x5C0F;&#x503C;&#x70B9;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mo>&#x2217;</mo></msup></mrow><annotation encoding="application/x-tex">x^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.688696em;"></span><span class="strut bottom" style="height:0.688696em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mbin mtight">&#x2217;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></li>
+<li><strong>&#x6B65;&#x9AA4;</strong>:</li>
+<li>&#x53D6;&#x521D;&#x59CB;&#x503C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mn>0</mn><mo>)</mo></mrow></msup><mo>&#x2208;</mo><msup><mi>R</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">x^{(0)}\in R^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.9270999999999999em;vertical-align:-0.0391em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathrm mtight">0</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">&#x2208;</span><span class="mord"><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C;&#x7F6E;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span>&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span></span></span></span></li>
+<li>&#x8BA1;&#x7B97;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x^{(k)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>&#x8BA1;&#x7B97;&#x68AF;&#x5EA6;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>g</mi><mi>k</mi></msub><mo>=</mo><mi>g</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">g_k=g(x^{(k)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>&#xFF0C;&#x5F53;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><msub><mi>g</mi><mi>k</mi></msub><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><mo>&lt;</mo><mi>&#x3F5;</mi></mrow><annotation encoding="application/x-tex">||g_k||&lt;\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mrel">&lt;</span><span class="mord mathit">&#x3F5;</span></span></span></span>&#x65F6;&#x505C;&#x6B62;&#x8FED;&#x4EE3;&#xFF0C;&#x4EE4;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mo>&#x2217;</mo></msup><mo>=</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^*=x^{(k)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mbin mtight">&#x2217;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>;&#x5426;&#x5219;&#xFF0C;&#x4EE4;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>k</mi></msub><mo>=</mo><mo>&#x2212;</mo><mi>g</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">p_k=-g(x^{(k)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord">&#x2212;</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>&#xFF0C;&#x6C42;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>&#x3BB;</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">\lambda_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">&#x3BB;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C;&#x4F7F;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>+</mo><msub><mi>&#x3BB;</mi><mi>k</mi></msub><msub><mi>p</mi><mi>k</mi></msub><mo>)</mo><mo>=</mo><msub><mi>min</mi><mrow><mi>&#x3BB;</mi><mo>&#x2265;</mo><mn>0</mn></mrow></msub><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>+</mo><mi>&#x3BB;</mi><msub><mi>p</mi><mi>k</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x^{(k)}+\lambda_kp_k)=\min_{\lambda \geq0}f(x^{(k)}+\lambda p_k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">&#x3BB;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mop"><span class="mop">min</span><span class="msupsub"><span class="vlist"><span style="top:0.14999999999999997em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">&#x3BB;</span><span class="mrel mtight">&#x2265;</span><span class="mord mathrm mtight">0</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord mathit">&#x3BB;</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></li>
+<li>&#x4EE4;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>&#x2190;</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>+</mo><msub><mi>&#x3BB;</mi><mi>k</mi></msub><msub><mi>p</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">x^{(k+1)} \leftarrow x^{(k)}+\lambda_k p_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.0824399999999998em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">&#x2190;</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">&#x3BB;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C;&#x8BA1;&#x7B97;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">f(x^{(k+1)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span>&#xFF0C;&#x5F53;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&#x2223;</mi><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup><mo>)</mo><mo>&#x2212;</mo><mi>f</mi><mo>(</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup><mo>)</mo><mi mathvariant="normal">&#x2223;</mi><mo>&lt;</mo><mi>&#x3F5;</mi></mrow><annotation encoding="application/x-tex">|f(x^{(k+1)})-f(x^{(k)})|&lt;\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.138em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mbin">&#x2212;</span><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mord mathrm">&#x2223;</span><span class="mrel">&lt;</span><span class="mord mathit">&#x3F5;</span></span></span></span>&#x6216;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">&#x2223;</mi><msup><mi>x</mi><mrow><mi>x</mi><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo><mo>&#x2212;</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>)</mo></mrow></msup></mrow></msup><mi mathvariant="normal">&#x2223;</mi><mo>&lt;</mo><mi>&#x3F5;</mi></mrow><annotation encoding="application/x-tex">|x^{x(k+1)-x^{(k)}}|&lt;\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.0396999999999998em;"></span><span class="strut bottom" style="height:1.2896999999999998em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">x</span><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight"><span class="mord mathit mtight">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.43100000000000005em;margin-right:0.07142857142857144em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle uncramped mtight"><span class="mord scriptscriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">&#x2223;</span><span class="mrel">&lt;</span><span class="mord mathit">&#x3F5;</span></span></span></span>&#x65F6;&#x505C;&#x6B62;&#x8FED;&#x4EE3;&#xFF0C;&#x4EE4;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mo>&#x2217;</mo></msup><mo>=</mo><msup><mi>x</mi><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^*=x^{(k+1)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:0.8879999999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mbin mtight">&#x2217;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></li>
+<li>&#x5426;&#x5219;&#xFF0C;&#x4EE4;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k=k+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span>&#xFF0C;&#x56DE;&#x5230;&#x6B65;&#x9AA4;3</li>
+</ul>
+<h2 id="&#x7B97;&#x6CD5;&#x8C03;&#x4F18;">&#x7B97;&#x6CD5;&#x8C03;&#x4F18;</h2>
+<ul>
+<li>&#x5B66;&#x4E60;&#x7387;&#xFF1A;&#x5B66;&#x4E60;&#x7387;&#x592A;&#x5C0F;&#x65F6;&#x6536;&#x655B;&#x8FC7;&#x6162;&#xFF0C;&#x4F46;&#x592A;&#x5927;&#x65F6;&#x53C8;&#x4F1A;&#x504F;&#x79BB;&#x6700;&#x4F18;&#x89E3;</li>
+<li>&#x521D;&#x59CB;&#x503C;&#xFF1A;&#x5F53;&#x635F;&#x5931;&#x51FD;&#x6570;&#x662F;&#x51F8;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x5F97;&#x5230;&#x7684;&#x89E3;&#x662F;&#x5168;&#x5C40;&#x6700;&#x4F18;&#x89E3;&#xFF1B;&#x5F53;&#x635F;&#x5931;&#x51FD;&#x6570;&#x662F;&#x975E;&#x51F8;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x89E3;&#x53EF;&#x80FD;&#x662F;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x9700;&#x8981;&#x968F;&#x673A;&#x9009;&#x53D6;&#x521D;&#x59CB;&#x503C;&#x5E76;&#x5728;&#x591A;&#x4E2A;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x89E3;&#x4E4B;&#x95F4;&#x6BD4;&#x8F83;</li>
+<li>&#x5F52;&#x4E00;&#x5316;&#xFF1A;&#x5982;&#x679C;&#x4E0D;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x4F1A;&#x6536;&#x655B;&#x5F97;&#x6BD4;&#x8F83;&#x6162;&#xFF0C;&#x5178;&#x578B;&#x7684;&#x60C5;&#x51B5;&#x5C31;&#x662F;&#x51FA;&#x73B0;&#x201C;&#x4E4B;&#x201D;&#x5B57;&#x578B;&#x7684;&#x6536;&#x655B;&#x8DEF;&#x5F84;</li>
+</ul>
+<h2 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2>
+<ul>
+<li>&#x5F53;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x662F;&#x51F8;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x662F;&#x5168;&#x5C40;&#x7684;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x7684;&#x89E3;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x5168;&#x5C40;&#x6700;&#x4F18;&#x89E3;</li>
+<li>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x6CD5;&#x7684;&#x6536;&#x655B;&#x901F;&#x5EA6;&#x672A;&#x5FC5;&#x662F;&#x6700;&#x5FEB;&#x7684;
+<hr><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'TCts5KoIjGLj4ylYmHWUy5Sx-gzGzoHsz',appKey: 'NY5Tq722qsz0wMnXeMEu3KYD',placeholder: 'Just go go',avatar: '',meta: undefined,pageSize: 10,lang: 'zh-CN',recordIP: false})</script></li>
+</ul>
+
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<a href="牛顿法和拟牛顿法.html" class="navigation navigation-prev " aria-label="Previous page: 牛顿法和拟牛顿法">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="集成学习.html" class="navigation navigation-next " aria-label="Next page: 集成学习">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"title":"梯度下降法","level":"1.2.7","depth":2,"next":{"title":"集成学习","level":"1.2.8","depth":2,"path":"doc/机器学习必知必会/集成学习.md","ref":"doc/机器学习必知必会/集成学习.md","articles":[]},"previous":{"title":"牛顿法和拟牛顿法","level":"1.2.6","depth":2,"path":"doc/机器学习必知必会/牛顿法和拟牛顿法.md","ref":"doc/机器学习必知必会/牛顿法和拟牛顿法.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings","back-to-top-button","copy-code-button","cuav-chapters","heading-anchors","theme-bookstyle","katex","splitter","valine","livereload"],"root":"src","styles":{"website":"styles/website.css"},"pluginsConfig":{"theme-bookstyle":{"search-placeholder":"输入关键字搜索","logo":"./logo.png","favicon":"./favicon.ico"},"livereload":{},"splitter":{},"search":{},"cuav-chapters":{"summaryMaxSize":20,"useLimitExpanded":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"heading-anchors":{},"highlight":{},"back-to-top-button":{},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"valine":{"avatar":"","lang":"zh-CN","pageSize":10,"placeholder":"Just go go","recordIP":false,"appId":"TCts5KoIjGLj4ylYmHWUy5Sx-gzGzoHsz","appKey":"NY5Tq722qsz0wMnXeMEu3KYD"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"nav":[{"url":"https://www.zhihu.com/people/mian-bei-juan-da-cong","target":"_blank","name":"知乎"}]}},"language":"zh-hans","gitbook":"*"},"file":{"path":"doc/机器学习必知必会/梯度下降法.md","mtime":"2021-10-01T06:41:32.001Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-01T13:30:19.352Z"},"basePath":"../..","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.2.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-bookstyle/book.js"></script>
+        
+    
+
+    </body>
+</html>
+

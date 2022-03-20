@@ -1,0 +1,41 @@
+{
+    "root": "src",
+    "language": "zh-hans",
+    "styles": {
+        "website": "styles/website.css"
+    },
+    "plugins": [
+        "-sharing",
+        "-fontsettings",
+        "back-to-top-button",
+        "copy-code-button",
+        "cuav-chapters",
+        "heading-anchors",
+        "theme-bookstyle",
+        "katex",
+        "splitter",
+        "valine"
+    ],
+    "variables": {
+        "themeFexa": {
+            "nav": [
+                {
+                    "url": "https://www.zhihu.com/people/mian-bei-juan-da-cong",
+                    "target": "_blank",
+                    "name": "知乎"
+                }
+            ]
+        }
+    },
+    "pluginsConfig": {
+        "theme-bookstyle": {
+            "search-placeholder": "输入关键字搜索",
+            "logo": "./logo.png",
+            "favicon": "./favicon.ico"
+        },
+        "valine": {
+            "appId": "TCts5KoIjGLj4ylYmHWUy5Sx-gzGzoHsz",
+            "appKey": "NY5Tq722qsz0wMnXeMEu3KYD"
+        }
+    }
+}
